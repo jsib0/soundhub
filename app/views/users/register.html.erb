@@ -13,7 +13,9 @@
 
 
 <% if flash[:errors] %>
-  <% flash[:errors].each do | error| %>
-    <p style="color:red"> error </p>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"> <%= e %> </p>
   <% end %>
 <% end %>
+
+<h4><button><a href="/">LogIn</a></button></h4>
