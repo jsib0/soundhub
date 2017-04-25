@@ -1,0 +1,6 @@
+<h1 class="page-header">Artists Matching <%= params[:artist_name] %></h1>
+<ul>
+ <% @artists.each do |artist| %>
+   <li><%= artist.name %> | <a href="/artists/<%= artist.id%>">SHOW</a> </li>
+ <% end %>
+</ul>

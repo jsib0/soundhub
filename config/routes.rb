@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post 'users' => 'users#create'
   get 'users/:id' => 'users#show'
 
+  get 'artists' => 'artists#index'
+  get '/artists/:id', to:'artists#show', as: 'artist'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

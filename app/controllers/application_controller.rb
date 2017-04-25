@@ -16,4 +16,6 @@ class ApplicationController < ActionController::Base
     event = Event.find(params[:id])
     redirect_to "/events" if current_user.id != event.user.id
   end
+
+
 end
