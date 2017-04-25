@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+  root 'session#new'
+  post'sessions' => 'session#create'
+  delete 'sessions/:id' => 'session#destroy'
+
+  get 'register' => 'users#register'
+  post 'users' => 'users#create'
+  get 'users/:id' => 'users#show'
+
+  get 'artists' => 'artists#index'
+  get '/artists/:id', to:'artists#show', as: 'artist'
+
+
+>>>>>>> upstream/master
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

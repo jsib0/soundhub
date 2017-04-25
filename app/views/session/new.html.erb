@@ -1,0 +1,17 @@
+<h1>welcome</h1>
+<form action="/sessions" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3>Please log in</h3>
+  <h3>Email <input type="email" name="email"></h3>
+  <h3>Password <input type="password" name="password"></h3>
+  <button>LogIn</button>
+</form>
+
+<div id="loginerror">
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end%>
+</div>
+<h4>Don't have an account yet? Please click <a href="/register">HERE</a> to register</h4>
