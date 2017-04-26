@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'tracks' => 'tracks#index'
 
   get 'albums' => 'albums#index'
+
+  post 'favartist' => 'favartist#create'
   # get '/artists/:id', to:'artists#show', as: 'artist'
 
 

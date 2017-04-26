@@ -48,11 +48,13 @@
       <th>Top Track</th>
     </tr>
 
+    <% @favartist.each do |fa| %>
     <tr>
-      <td>Testing</td>
-      <td>Testing</td>
+      <td><a href="/artists/<%= fa.artist_id %>"><%= fa.name %></a></td>
+      <td><%= fa.artist_id %></td>
       <td>Testing</td>
     </tr>
+    <% end %>
   </table>
 
   <h2>Favorite Albums</h2>
