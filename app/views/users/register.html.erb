@@ -1,23 +1,30 @@
 
 <h1>Wow, you don't want to miss this, go ahead and register</h1>
-
-<form class="" action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h4>First Name: <input type="text" name="user[first_name]" value=""></h4>
-  <h4>Last Name: <input type="text" name="user[last_name]" value=""></h4>
-  <h4>Username: <input type="text" name="user[username]" value=""></h4>
-  <h4>Email: <input type="text" name="user[email]" value=""></h4>
-  <h4>Age: <input type="number" name="user[age]" min="0" max="120" step="1" value="0"></h4>
-  <h4>Password: <input type="password" name="user[password]" value=""></h4>
-  <h4>Confirm Password: <input type="password" name="user[password_confirmation]" value=""></h4>
-  <button>Register</button>
-</form>
-
-
-<% if flash[:errors] %>
-  <% flash[:errors].each do |e| %>
-    <p style="color:red"> <%= e %> </p>
+<% content_for :middle do %>
+  <form class="" action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h4>First Name: <input type="text" name="user[first_name]" value=""></h4>
+    <h4>Last Name: <input type="text" name="user[last_name]" value=""></h4>
+    <h4>Username: <input type="text" name="user[username]" value=""></h4>
+    <h4>Email: <input type="text" name="user[email]" value=""></h4>
+    <h4>Age: <input type="number" name="user[age]" min="0" max="120" step="1" value="0"></h4>
+    <h4>Password: <input type="password" name="user[password]" value=""></h4>
+    <h4>Confirm Password: <input type="password" name="user[password_confirmation]" value=""></h4>
+    <button>Register</button>
+  </form>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <p style="color:red"> <%= e %> </p>
+    <% end %>
   <% end %>
+
+  <h4><a href="/">Back to Log In Page</a></h4>
 <% end %>
 
-<h4><a href="/">Back to Log In Page</a></h4>
+<% content_for :right do %>
+  <h3>we can do something thaht is cool and eye catchy</h3>
+<% end %>
+
+<% content_for :left do %>
+  <h3>we can do something thaht is cool and eye catchy</h3>
+<% end %>

@@ -1,63 +1,71 @@
 <h1>Welcome <%= @user.username%></h1>
+<% content_for :left do %>
+  <form class="" action="/artists" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Artist Name:</label>
+    <input type="text" name="artist_name" value="">
+    <input type="submit" name="" value="Search">
+  </form>
 
-<form class="" action="/artists" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Artist Name:</label>
-  <input type="text" name="artist_name" value="">
-  <input type="submit" name="" value="Search">
-</form>
+  <form class="" action="/tracks" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Song Name:</label>
+    <input type="text" name="track_name" value="">
+    <input type="submit" name="" value="Search">
+  </form>
 
-<form class="" action="/tracks" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Song Name:</label>
-  <input type="text" name="track_name" value="">
-  <input type="submit" name="" value="Search">
-</form>
+  <form class="" action="/albums" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Album Name:</label>
+    <input type="text" name="album_name" value="">
+    <input type="submit" name="" value="Search">
+  </form>
+<% end %>
 
-<form class="" action="/albums" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Album Name:</label>
-  <input type="text" name="album_name" value="">
-  <input type="submit" name="" value="Search">
-</form>
+<% content_for :middle do %>
+  <h2>Favorite Tracks</h2>
+  <table>
+    <tr>
+      <th>Track</th>
+      <th>Artists</th>
+      <th>Album</th>
+      <th>Released Year</th>
+    </tr>
 
-<h2>Favorite Tracks</h2>
-<table>
-  <tr>
-    <th>Artist</th>
-    <th>Song</th>
-    <th>Album</th>
-    <th>Released Year</th>
-  </tr>
+    <tr>
+      <td>Testing</td>
+      <td>Testing</td>
+      <td>Testing</td>
+      <td>Testing</td>
+    </tr>
+  </table>
 
-  <tr>
-    <td>Testing</td>
-    <td>Testing</td>
-    <td>Testing</td>
-    <td>Testing</td>
-  </tr>
-</table>
+  <h2>Favorite Artists</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Genres</th>
+      <th>Top Track</th>
+    </tr>
 
-<h2>Favorite Artists</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Genres</th>
-    <th>Top Track</th>
-  </tr>
+    <tr>
+      <td>Testing</td>
+      <td>Testing</td>
+      <td>Testing</td>
+    </tr>
+  </table>
 
-  <tr>
-    <td>Testing</td>
-    <td>Testing</td>
-    <td>Testing</td>
-  </tr>
-</table>
+  <h2>Favorite Albums</h2>
+  <table>
+    <tr>
+      <th>Album</th>
+      <th>Artist</th>
+      <th>Genres</th>
+      <th>Relased Year</th>
+    </tr>
+  </table>
+<% end %>
 
-<h2>Favorite Videos</h2>
-<table>
-  <tr>
-    <th>Artist</th>
-    <th>Name</th>
-    <th>Genres</th>
-  </tr>
-</table>
+<% content_for :right do%>
+<h4>here we will have a box rendering the most popular songs</h4>
+<% end %>

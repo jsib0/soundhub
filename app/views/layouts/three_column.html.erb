@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LayoutAssignment</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style media="screen">
+      table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th{
+
+      font-weight:bolder;
+    }
+
+    td, th {
+      border: 3px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <% if current_user %>
+    <form action="/sessions/<%=current_user.id%>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log Out">
+    </form>
+  <% end %>
+<%= yield %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-3">
+      <%= yield :left %>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <%= yield :middle %>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      <%= yield :right %>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

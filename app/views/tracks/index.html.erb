@@ -1,10 +1,16 @@
 <h1 class="page-header">Tracks Matching <%= params[:track_name] %></h1>
-<ul>
+<ul style="list-style: none;">
  <% @track.each do |track| %>
-   <li><%= track.name %> by
+   <li>&#9839 <%= track.name %> by
      <% track.artists.each do |t| %>
-       <%=t.name %>
+      <%=t.name %>
      <% end %>
-     | <a href="/tracks/<%= track.id%>">SHOW</a> </li>
+     &#9835 <a href="<%= track.preview_url %>">Play</a>
+     |
+    <form style="display: inline-block;" action="/#" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" name="" value="Add to my favorite">
+    </form>
+   </li>
  <% end %>
 </ul>
