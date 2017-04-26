@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+  get 'albums/index'
+
+  get 'albums/show'
+
+  get 'tracks/index'
+
+  get 'tracks/show'
+>>>>>>> upstream/master
 
   root 'session#new'
   post'sessions' => 'session#create'
@@ -10,6 +20,13 @@ Rails.application.routes.draw do
 
   get 'artists' => 'artists#index'
   get '/artists/:id', to:'artists#show', as: 'artist'
+
+  get 'tracks' => 'tracks#index'
+
+  get 'albums' => 'albums#index'
+
+  post 'favartist' => 'favartist#create'
+  # get '/artists/:id', to:'artists#show', as: 'artist'
 
 
 

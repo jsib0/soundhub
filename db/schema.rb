@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170426041655) do
+=======
+ActiveRecord::Schema.define(version: 20170426183658) do
+>>>>>>> upstream/master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favartists", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favartists", ["user_id"], name: "index_favartists_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -27,4 +41,5 @@ ActiveRecord::Schema.define(version: 20170426041655) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "favartists", "users"
 end
