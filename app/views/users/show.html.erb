@@ -2,10 +2,13 @@
 
 <form class="" action="/artists" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Artist Name:</label>
-  <input type="text" name="artist_name" value="">
+  <label class="control-label" for="inoutSuccess2"></label>
+  <input type="text" class="form-control" id="inputSuccess2"name="artist_name" value="">
+  <span class="glyphicon glyphicon-search form-control-feedback"></span>
   <input type="submit" name="" value="Search">
 </form>
+
+
 
 <h2>Favorite Tracks</h2>
 <table>
