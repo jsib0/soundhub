@@ -1,0 +1,10 @@
+<h1 class="page-header">Tracks Matching <%= params[:track_name] %></h1>
+<ul>
+ <% @track.each do |track| %>
+   <li><%= track.name %> by
+     <% track.artists.each do |t| %>
+       <%=t.name %>
+     <% end %>
+     | <a href="/tracks/<%= track.id%>">SHOW</a> </li>
+ <% end %>
+</ul>

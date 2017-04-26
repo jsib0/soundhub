@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'albums/index'
+
+  get 'albums/show'
+
+  get 'tracks/index'
+
+  get 'tracks/show'
+
   root 'session#new'
   post'sessions' => 'session#create'
   delete 'sessions/:id' => 'session#destroy'
@@ -9,6 +17,11 @@ Rails.application.routes.draw do
 
   get 'artists' => 'artists#index'
   get '/artists/:id', to:'artists#show', as: 'artist'
+
+  get 'tracks' => 'tracks#index'
+
+  get 'albums' => 'albums#index'
+  # get '/artists/:id', to:'artists#show', as: 'artist'
 
 
 

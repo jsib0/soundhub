@@ -1,3 +1,4 @@
+
 <h1>Wow, you don't want to miss this, go ahead and register</h1>
 
 <form class="" action="/users" method="post">
@@ -6,9 +7,10 @@
   <h4>Last Name: <input type="text" name="user[last_name]" value=""></h4>
   <h4>Username: <input type="text" name="user[username]" value=""></h4>
   <h4>Email: <input type="text" name="user[email]" value=""></h4>
+  <h4>Age: <input type="number" name="user[age]" min="0" max="120" step="1" value="0"></h4>
   <h4>Password: <input type="password" name="user[password]" value=""></h4>
   <h4>Confirm Password: <input type="password" name="user[password_confirmation]" value=""></h4>
-  <button style="width:100%">Register</button>
+  <button>Register</button>
 </form>
 
 
@@ -18,4 +20,4 @@
   <% end %>
 <% end %>
 
-<h4><button><a href="/">LogIn</a></button></h4>
+<h4><a href="/">Back to Log In Page</a></h4>

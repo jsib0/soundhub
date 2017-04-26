@@ -1,0 +1,10 @@
+<h1 class="page-header">Album Matching <%= params[:album_name] %></h1>
+<ul>
+ <% @albums.each do |album| %>
+   <li><%= album.name %> by
+     <% album.artists.each do |item|%>
+       <%= item.name%>
+     <% end %>
+     | <a href="/#">SHOW</a> </li>
+ <% end %>
+</ul>
