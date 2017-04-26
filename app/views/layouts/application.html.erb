@@ -24,6 +24,7 @@
 </style>
 </head>
 <body>
+
   <% if current_user %>
     <form action="/sessions/<%=current_user.id%>" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

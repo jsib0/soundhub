@@ -1,0 +1,53 @@
+
+
+<h1 class="page-header">Artists<%= params[:artist_name] %></h1>
+<ul>
+ <% @artists.take(5).each do |artist| %>
+   <li style="list-style-type: none"> <a href="/artists/<%= artist.id%>"><%= artist.name %></a>
+   <form style="display:inline-block" action="/favartist" method="post">
+     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+     <input type="hidden" name="favartist[artist_id]" value="<%= artist.id %>">
+     <input type="hidden" name="favartist[name]" value="<%= artist.name %>">
+     <input type="submit" name="" value="Favorite">
+   </form>
+   </li>
+   <!-- Popularity: <%= artist.popularity %>
+   Genres: <%= artist.genres %>
+   ID:<%= artist.id %> -->
+
+ <% end %>
+</ul>
+
+<h1 class="page-header">Album<%= params[:album_name] %></h1>
+<ul>
+ <% @album.take(5).each do |album| %>
+   <li><%= album.name %> by
+     <% album.artists.each do |item|%>
+       <%= item.name%>
+     <% end %>
+     | <a href="/#">SHOW</a> </li>
+
+     <!-- <%= album.popularity %>
+     <%= album.release_date %>
+
+     <%= album.images %>
+     <%= album.id %> -->
+ <% end %>
+</ul>
+
+<h1 class="page-header">Tracks<%= params[:track_name] %></h1>
+<ul style="list-style: none;">
+ <% @track.take(5).each do |track| %>
+   <li>&#9839 <%= track.name %> by
+     <% track.artists.each do |t| %>
+      <%=t.name %>
+     <% end %>
+     &#9835 <a href="<%= track.preview_url %>">Play</a>
+     |
+    <form style="display: inline-block;" action="/#" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" name="" value="Add to my favorite">
+    </form>
+   </li>
+ <% end %>
+</ul>
