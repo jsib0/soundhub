@@ -9,6 +9,12 @@ class FavartistController < ApplicationController
     end
   end
 
+  def destroy
+    @favartist=Favartist.where(user_id:current_user.id,artist_id:params[:favartist][:artist_id]).first
+    @favartist.destroy
+    # @favartist=Favartist.find(pamras[:id]).destroy
+    redirect_to "/users/#{current_user.id}"
+  end
 
 
   private

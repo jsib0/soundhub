@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   get 'albums' => 'albums#index'
 
   post 'favartist' => 'favartist#create'
+  delete 'favartist' => 'favartist#destroy'
+
+  post 'favalbum' => 'favalbums#create'
   # get '/artists/:id', to:'artists#show', as: 'artist'
 
 

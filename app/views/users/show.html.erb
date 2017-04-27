@@ -46,6 +46,7 @@
       <th>Name</th>
       <th>Genres</th>
       <th>Top Track</th>
+      <th>Action</th>
     </tr>
 
     <% @favartist.each do |fa| %>
@@ -53,6 +54,14 @@
       <td><a href="/artists/<%= fa.artist_id %>"><%= fa.name %></a></td>
       <td><%= fa.artist_id %></td>
       <td>Testing</td>
+      <td>
+        <form style="display:inline-block" action="/favartist" method="post" data-confirm="are your sure?">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="favartist[artist_id]" value="<%= fa.artist_id %>">
+          <input type="submit" name="" value="Remove">
+        </form>
+      </td>
     </tr>
     <% end %>
   </table>
@@ -62,9 +71,18 @@
     <tr>
       <th>Album</th>
       <th>Artist</th>
-      <th>Genres</th>
+      <th>Popularity</th>
       <th>Relased Year</th>
     </tr>
+
+    <% @favalbum.each do |favalbum| %>
+    <tr>
+      <td><%= favalbum.name %></td>
+      <td><a href="/artists/<%= favalbum.artist_id %>"><%= favalbum.artist %></a> </td>
+      <td><%= favalbum.popularity %></td>
+      <td><%= favalbum.releasedate %></td>
+    </tr>
+    <% end %>
   </table>
 <% end %>
 

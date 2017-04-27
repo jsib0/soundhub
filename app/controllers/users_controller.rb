@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     # @track = RSpotify::Track::
     @user=User.find(params[:id])
     @favartist=Favartist.where(user_id:current_user.id)
+    @favalbum=Favalbum.where(user_id:current_user.id)
+
+    # @favortist.each do |fava|
+    #  @artists = RSpotify::Artist.search(fava.id)
+    # end
 
 
 

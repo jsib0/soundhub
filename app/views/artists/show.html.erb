@@ -1,4 +1,9 @@
 <h1 class="page-header"><%= @artist.name %></h1>
+
+<% @artist.top_tracks(:US).take(3).each do |track| %>
+  <a href="<%= track.preview_url %>"><%= track.name %></a> |
+<% end %>
+
 <% @artist.albums(country: 'US').each do |album| %>
  <h3><%= album.name %></h3>
  <ul>
