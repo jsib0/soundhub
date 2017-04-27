@@ -1,17 +1,18 @@
 
-<h1>
-Album: <%= @album.name %>|
-<% @album.artists.each do |item| %>
-<form style="display:inline-block" action="/favalbum" method="post">
+<center><form style="display:inline-block" action="/favalbum" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="favalbum[album_id]" value="<%= @album.id %>">
   <input type="hidden" name="favalbum[name]" value="<%= @album.name %>">
   <input type="hidden" name="favalbum[artist]" value="<%= item.name %>">
   <input type="hidden" name="favalbum[releasedate]" value="<%= @album.release_date %>">
   <input type="hidden" name="favalbum[popularity]" value="<%= @album.popularity %>">
-  <input type="hidden" name="favalbum[artist_id]" value="<%= item.id %>">
+  <input type="hidden" name="favalbum[artist_id]" value="<%= album_id %>">
   <input type="submit" name="" value="Favorite">
 </form>
+<h1>
+Album: <%= @album.name %>
+<% @album.artists.each do |item| %>
+
 <% end %>
 </h1>
 <% if flash[:errors] %>
