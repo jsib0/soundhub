@@ -1,2 +1,19 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<h1><%= @album.name %></h1>
+<h3><%= @album.release_date %></h3>
+<% @album.artists.each do |artist| %>
+  <h3><a href="/artists/<%= artist.id %>"><%= artist.name %></a> </h3>
+<% end %>
+
+<% @album.images.take(1).each do |image| %>
+  <img style="height:200px"src="<%= image["url"]%>" alt="<%= @album.name%>">
+<% end %>
+
+<% @album.genres.each do |genre| %>
+ <%= genre%>
+<% end %>
+
+  <ul style="list-style: none">
+    <% @album.tracks.each do |track| %>
+    <h3><li> &#9833<a href="<%= track.preview_url %>"><%= track.name %></a> </li></h3>
+    <% end %>
+  </ul>

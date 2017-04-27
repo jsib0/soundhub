@@ -1,16 +1,15 @@
 <h1 class="page-header"><%= @artist.name %></h1>
-
-<% @artist.top_tracks(:US).take(3).each do |track| %>
-  <a href="<%= track.preview_url %>"><%= track.name %></a> |
+<ul style="list-style: none;">
+<% @artist.top_tracks(:US).take(5).each do |track| %>
+ <li>&#9833<a href="<%= track.preview_url %>"><%= track.name %></a></li>
 <% end %>
+</ul>
 
 <% @artist.albums(country: 'US').each do |album| %>
- <h3><%= album.name %></h3>
- <ul>
-   <% album.tracks.each do |track| %>
-     <li>
-      <a style="color:green;"href="<%= track.preview_url %>">  <%= track.name %> </a>
-     </li>
-   <% end %>
- </ul>
+ <h3><a href="/albums/<%= album.id %>"><%= album.name %></a> </h3>
+ <h4><%= album.type %></h4>
+ <h4><%= album.genres %></h4>
+ <% album.genres.each do |genres| %>
+  <%= genres%>
+ <% end %>
 <% end %>

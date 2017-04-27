@@ -1,2 +1,7 @@
-<h1>Tracks#show</h1>
-<p>Find me in app/views/tracks/show.html.erb</p>
+<h1><%= @track.name%> |</h1>
+<% @track.artists.each do |artist| %>
+<h2><a href="/artists/<%= artist.id %>"><%= artist.name %></a></h2>
+<% end %>
+
+<h2> <a href="/albums/<%= @track.album.id %>"><%= @track.album.name %></a> </h2>
+<h2><%= @track.popularity %></h2>

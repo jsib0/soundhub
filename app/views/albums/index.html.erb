@@ -4,7 +4,7 @@
    <li><%= album.name %> by
      <% album.artists.each do |item|%>
        <%= item.name%>
-     | <a href="/#">SHOW</a> |
+     | <a href="/albums/<%= album.id %>">SHOW</a> |
      <form style="display:inline-block" action="/favalbum" method="post">
        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
        <input type="hidden" name="favalbum[album_id]" value="<%= album.id %>">
@@ -25,6 +25,7 @@
      <%= album.release_date %>|
 
      <%= album.id %>|
+  
 
  <% end %>
 </ul>

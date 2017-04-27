@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426231634) do
+ActiveRecord::Schema.define(version: 20170427072606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20170426231634) do
 
   add_index "favartists", ["user_id"], name: "index_favartists_on_user_id", using: :btree
 
+  create_table "favtracks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "track_id"
+    t.string   "album_id"
+    t.string   "album"
+    t.integer  "popularity"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favtracks", ["user_id"], name: "index_favtracks_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -53,4 +66,5 @@ ActiveRecord::Schema.define(version: 20170426231634) do
 
   add_foreign_key "favalbums", "users"
   add_foreign_key "favartists", "users"
+  add_foreign_key "favtracks", "users"
 end

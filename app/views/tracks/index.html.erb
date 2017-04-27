@@ -1,16 +1,27 @@
 <h1 class="page-header">Tracks Matching <%= params[:track_name] %></h1>
 <ul style="list-style: none;">
  <% @track.each do |track| %>
-   <li>&#9839 <%= track.name %> by
+   <li>&#9839 <a href="/tracks/<%= track.id %>"><%= track.name %></a>  by
      <% track.artists.each do |t| %>
       <%=t.name %>
      <% end %>
      &#9835 <a href="<%= track.preview_url %>">Play</a>
      |
-    <form style="display: inline-block;" action="/#" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="submit" name="" value="Add to my favorite">
-    </form>
+     <%= track.id %> |
+     <%= track.album.name %>|
+     <%= track.album.id %>|
+     <%= track.popularity %>|
+     <%= track.track_number %>|
+
+     <form style="display:inline-block" action="/favtracks" method="post">
+       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+       <input type="hidden" name="favtrack[album_id]" value="<%= track.album.id %>">
+       <input type="hidden" name="favtrack[name]" value="<%= track.name %>">
+       <input type="hidden" name="favtrack[track_id]" value="<%= track.id %>">
+       <input type="hidden" name="favtrack[album]" value="<%= track.album.name %>">
+       <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
+       <input type="submit" name="" value="Favorite">
+     </form>
    </li>
  <% end %>
 </ul>

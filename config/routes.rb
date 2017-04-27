@@ -19,11 +19,15 @@ Rails.application.routes.draw do
   get '/artists/:id', to:'artists#show', as: 'artist'
 
   get 'tracks' => 'tracks#index'
+  get 'tracks/:id' => 'tracks#show'
 
   get 'albums' => 'albums#index'
+  get 'albums/:id' => 'albums#show'
 
   post 'favartist' => 'favartist#create'
   delete 'favartist' => 'favartist#destroy'
+
+  post 'favtracks' => 'favtracks#create'
 
   post 'favalbum' => 'favalbums#create'
   # get '/artists/:id', to:'artists#show', as: 'artist'
