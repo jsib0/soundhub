@@ -1,21 +1,24 @@
-<h1 class="page-header"><%= @artist.name %> |
+<center>
+
+<h1 class="page-header"><%= @artist.name %> 
+
+</h1>
+
+<% @artist.images.take(1).each do |image| %>
+  <img style="height:200px"src="<%= image["url"]%>" alt="<%= @artist.name%>">
+<% end %><br>
 <form style="display:inline-block" action="/favartist" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="favartist[artist_id]" value="<%= @artist.id %>">
   <input type="hidden" name="favartist[name]" value="<%= @artist.name %>">
   <input type="submit" name="" value="Favorite">
 </form>
-</h1>
-
-<% @artist.images.take(1).each do |image| %>
-  <img style="height:200px"src="<%= image["url"]%>" alt="<%= @artist.name%>">
-<% end %>
-
-<h3>Top Five Tracks</h3>
+<h4>Top Five Tracks</h4>
+ <div id="top5">
 <ul style="list-style: none;">
 <% @artist.top_tracks(:US).take(5).each do |track| %>
  <li>
-   &#9833<a href="<%= track.preview_url %>"><%= track.name %></a> |
+  <a href="<%= track.preview_url %>"><%= track.name %></a> |
    <form style="display:inline-block" action="/favtracks" method="post">
      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
      <input type="hidden" name="favtrack[album_id]" value="<%= track.album.id %>">
@@ -28,7 +31,9 @@
  </li>
 <% end %>
 </ul>
-
+</div>
+<div class="moremusic">
+<h2>All Albums</h2>
 <% @artist.albums(country: 'US').each do |album| %>
 <% album.artists.each do |item|%>
  <h5>
@@ -46,3 +51,12 @@
   <% end %>
  </h5>
 <% end %>
+<style type="text/css">
+#top5{
+  border:3px solid black;
+  width:300px;
+}
+form{
+  align-content:right;
+}
+</style>

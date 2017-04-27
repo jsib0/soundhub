@@ -1,11 +1,12 @@
-<h1><%= @album.name %></h1>
-<h3><%= @album.release_date %></h3>
+<center>
+<h1>Album:<%= @album.name %></h1>
+<h3>Released: <%= @album.release_date %></h3>
 <% @album.artists.each do |artist| %>
-  <h3><a href="/artists/<%= artist.id %>"><%= artist.name %></a> </h3>
+  <h3>Artist: <a href="/artists/<%= artist.id %>"><%= artist.name %></a> </h3>
 <% end %>
 
 <% @album.images.take(1).each do |image| %>
-  <img style="height:200px"src="<%= image["url"]%>" alt="<%= @album.name%>">
+  <img style="height:500px"src="<%= image["url"]%>" alt="<%= @album.name%>">  <p class="z-depth-5"></p>
 <% end %>
 
 <% @album.genres.each do |genre| %>
@@ -13,7 +14,18 @@
 <% end %>
 
   <ul style="list-style: none">
-    <% @album.tracks.each do |track| %>
-    <h3><li> &#9833<a href="<%= track.preview_url %>"><%= track.name %></a> </li></h3>
+    <% @album.tracks.each do |track| %> <br>
+    <h3><li> <%= track.track_number %>.   <%=track.name %><br> <audio src="<%= track.preview_url %>" controls><br>
+
+</li></h3>
     <% end %>
   </ul>
+</center>
+<style type="text/css">
+body h1,h2,h3, a{
+	font-size:40px;
+	color:white;
+}
+
+
+</style>

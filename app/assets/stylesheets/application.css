@@ -11,6 +11,9 @@
  * file per style scope.
  *
  *= require bootstrap.min
+ @import "materialize";
  *= require_tree .
  *= require_self
  */
+
+        

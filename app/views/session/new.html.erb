@@ -1,12 +1,15 @@
-<h1>welcome</h1>
+<center><h4>SoundBuddy
+   <div class="parallax-container">
+      <div class="parallax"><img src="/assets/1.jpg"></div>
+    </div><center>
 <form action="/sessions" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h3>Please log in</h3>
+
   <h3>Email <input type="email" name="email"></h3>
   <h3>Password <input type="password" name="password"></h3>
   <button>LogIn</button>
 </form>
-
+<div id="particles-js"></div> 
 <div id="loginerror">
 <% if flash[:errors] %>
   <% flash[:errors].each do |e| %>
@@ -15,3 +18,13 @@
 <% end%>
 </div>
 <h4>Don't have an account yet? Please click <a href="/register">HERE</a> to register</h4>
+<style type="text/css">
+h3,h4 {
+	color:white;
+}
+form{
+	display:inline-block;
+	width:30%;
+}
+
+</style>
