@@ -27,7 +27,6 @@
   <table>
     <tr>
       <th>Track</th>
-      <th>Artists</th>
       <th>Album</th>
       <th>Popularity</th>
       <th>Action</th>
@@ -35,15 +34,14 @@
 
     <% @favtrack.each do |ft| %>
     <tr>
-      <td> <a href="#"> <%= ft.name %></a></td>
-      <td><%= ft.name%></td>
+      <td> <a href="/tracks/<%= ft.track_id %>"> <%= ft.name %></a></td>
       <td><%= ft.album%></td>
       <td><%= ft.popularity%></td>
       <td>
-        <form class="" action="" method="post">
+        <form class="" action="/favtrack" method="post" data-confirm="are you sure?">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="hidden" name="_method" value="delete">
-
+          <input type="hidden" name="favtrack[track_id]" value="<%= ft.track_id %>">
           <input type="submit" name="" value="Remove">
         </form>
       </td>
@@ -70,10 +68,10 @@
       <td><%= favalbum.popularity %></td>
       <td><%= favalbum.releasedate %></td>
       <td>
-        <form style="display:inline-block" action="/#" method="post" data-confirm="are your sure?">
+        <form style="display:inline-block" action="/favalbum" method="post" data-confirm="are your sure?">
           <input type="hidden" name="_method" value="delete">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <input type="hidden" name="favalbum[album_id]" value="<%= favalbum.artist_id %>">
+          <input type="hidden" name="favalbum[album_id]" value="<%= favalbum.album_id %>">
           <input type="submit" name="" value="Remove">
         </form>
       </td>

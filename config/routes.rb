@@ -28,8 +28,10 @@ Rails.application.routes.draw do
   delete 'favartist' => 'favartist#destroy'
 
   post 'favtracks' => 'favtracks#create'
+  delete 'favtrack' => 'favtracks#destroy'
 
   post 'favalbum' => 'favalbums#create'
+  delete 'favalbum' => 'favalbums#destroy'
   # get '/artists/:id', to:'artists#show', as: 'artist'
 
 

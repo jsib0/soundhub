@@ -3,7 +3,8 @@
  <% @track.each do |track| %>
    <li>&#9839 <a href="/tracks/<%= track.id %>"><%= track.name %></a>  by
      <% track.artists.each do |t| %>
-      <%=t.name %>
+      <%=t.name %> ||** artist_id:: but didn't add to my favtrack model, multiple artists could cause problems
+      <%= t.id %>**
      <% end %>
      &#9835 <a href="<%= track.preview_url %>">Play</a>
      |

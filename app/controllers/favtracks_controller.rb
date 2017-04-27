@@ -9,6 +9,11 @@ class FavtracksController < ApplicationController
     end
   end
 
+  def destroy
+    @favtrack=Favtrack.where(user_id:current_user.id,track_id:params[:favtrack][:track_id]).first
+    @favtrack.destroy
+    redirect_to "/users/#{current_user.id}"
+  end
 
 
   private
