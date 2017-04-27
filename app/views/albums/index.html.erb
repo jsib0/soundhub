@@ -1,4 +1,9 @@
 <h1 class="page-header">Album Matching <%= params[:album_name] %></h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end %>
 <ul>
  <% @albums.each do |album| %>
    <li><%= album.name %> by
@@ -13,19 +18,13 @@
        <input type="hidden" name="favalbum[releasedate]" value="<%= album.release_date %>">
        <input type="hidden" name="favalbum[popularity]" value="<%= album.popularity %>">
        <input type="hidden" name="favalbum[artist_id]" value="<%= item.id %>">
-
        <input type="submit" name="" value="Favorite">
      </form>
     </li>
 
-    <%= item.id %>
     <% end %>
 
-     <%= album.popularity %> |
-     <%= album.release_date %>|
 
-     <%= album.id %>|
-  
 
  <% end %>
 </ul>

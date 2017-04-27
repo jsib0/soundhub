@@ -4,7 +4,7 @@ class FavalbumsController < ApplicationController
     if favalbum.save
       redirect_to "/users/#{current_user.id}"
     else
-      flash[:errors]=favartist.errors.full_messages
+      flash[:errors]=favalbum.errors.full_messages
       redirect_to :back
     end
   end

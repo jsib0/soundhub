@@ -2,11 +2,17 @@
 <center>
 
 <h1 class="page-header">Tracks Matching <%= params[:track_name] %></h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end %>
 <ul style="list-style: none;">
  <% @track.each do |track| %>
     <div class="indextrack">
    <li> <a href="/tracks/<%= track.id %>"><%= track.name %></a>  by
      <% track.artists.each do |t| %>
+<<<<<<< HEAD
       <%=t.name %>
       
 
@@ -17,6 +23,7 @@
 
 
     <% end %>
+
      <form style="display:inline-block" action="/favtracks" method="post">
        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
        <input type="hidden" name="favtrack[album_id]" value="<%= track.album.id %>">
@@ -26,10 +33,12 @@
        <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
        <input type="submit" name="" value="Favorite">
      </form>
+
   
 Track Number:<%= track.track_number %> <br>
 Song Popularity:<%= track.popularity %> <br>
 </div>
+
  <% end %>
 </ul>
 

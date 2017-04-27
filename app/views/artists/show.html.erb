@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <center>
 
 <h1 class="page-header"><%= @artist.name %> 
@@ -7,14 +8,22 @@
 <% @artist.images.take(1).each do |image| %>
   <img style="height:200px"src="<%= image["url"]%>" alt="<%= @artist.name%>">
 <% end %><br>
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <p style="color:red"><%= e %></p>
+    <% end %>
+
 <form style="display:inline-block" action="/favartist" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="favartist[artist_id]" value="<%= @artist.id %>">
   <input type="hidden" name="favartist[name]" value="<%= @artist.name %>">
   <input type="submit" name="" value="Favorite">
 </form>
+<<<<<<< HEAD
 <h4>Top Five Tracks</h4>
  <div id="top5">
+
 <ul style="list-style: none;">
 <% @artist.top_tracks(:US).take(5).each do |track| %>
  <li>
@@ -27,7 +36,8 @@
      <input type="hidden" name="favtrack[album]" value="<%= track.album.name %>">
      <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
      <input type="submit" name="" value="Favorite">
-   </form>
+   </form> |
+   <audio src="<%= track.preview_url %>" controls><br>
  </li>
 <% end %>
 </ul>

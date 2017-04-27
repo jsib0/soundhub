@@ -4,5 +4,6 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :favartists, dependent: :destroy
-  has_many :favaalbums, dependent: :destroy
+  has_many :favalbums, dependent: :destroy
+  has_many :favtracks, dependent: :destroy
 end
