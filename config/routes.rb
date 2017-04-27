@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'posts/create'
-
-  get 'posts/show'
-
   get 'searches' => 'searches#index'
 
   get 'searches/show'
@@ -14,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'register' => 'users#register'
   post 'users' => 'users#create'
-  get 'users/:id' => 'users#show'
+  get '/users/:id' => 'users#show'
 
   get 'artists' => 'artists#index'
   get 'tracks' => 'tracks#index'
@@ -24,7 +20,7 @@ Rails.application.routes.draw do
 
 
   post 'favartist' => 'favartist#create'
-  post 'post' => 'posts#create'
+
 
 
 

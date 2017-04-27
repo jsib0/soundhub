@@ -27,8 +27,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'rspotify'
 gem 'rest_client'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+
+# gem 'bootstrap', '~> 4.0.0.alpha6'
 gem "paperclip", "~> 5.0.0"
+
+
 
 
 # Use Unicorn as the app server
