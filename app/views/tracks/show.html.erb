@@ -1,3 +1,4 @@
+<%= render "shared/menu" %>
 <h1><a href="<%= @track.preview_url %>"><%= @track.name%></a>  | <audio src="<%= @track.preview_url %>" controls> </h1>
 <% if flash[:errors] %>
   <% flash[:errors].each do |e| %>

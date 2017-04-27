@@ -1,4 +1,4 @@
-
+<%= render "shared/menu" %>
 <center>
 
 <h1 class="page-header">Tracks Matching <%= params[:track_name] %></h1>
@@ -14,10 +14,10 @@
      <% track.artists.each do |t| %>
 
       <%=t.name %>
-      
 
 
- 
+
+
     <br>
      <audio src="<%= track.preview_url %>" controls><br>
 
@@ -34,7 +34,7 @@
        <input type="submit" name="" value="Favorite">
      </form>
 
-  
+
 Track Number:<%= track.track_number %> <br>
 Song Popularity:<%= track.popularity %> <br>
 </div>
