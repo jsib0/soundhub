@@ -1,4 +1,9 @@
 <h1 class="page-header">Artists Matching <%= params[:artist_name] %></h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end %>
 <ul>
  <% @artists.each do |artist| %>
    <li><%= artist.name %> | <a href="/artists/<%= artist.id%>">SHOW</a>

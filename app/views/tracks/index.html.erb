@@ -1,4 +1,9 @@
 <h1 class="page-header">Tracks Matching <%= params[:track_name] %></h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end %>
 <ul style="list-style: none;">
  <% @track.each do |track| %>
    <li>&#9839 <a href="/tracks/<%= track.id %>"><%= track.name %></a>  by

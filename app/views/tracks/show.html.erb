@@ -1,4 +1,9 @@
 <h1><a href="<%= @track.preview_url %>"><%= @track.name%></a>  |</h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end %>
 
 <% @track.artists.each do |artist| %>
 <h2><a href="/artists/<%= artist.id %>"><%= artist.name %></a> |
@@ -12,5 +17,8 @@
 
 <% end %>
 
-<h2> <a href="/albums/<%= @track.album.id %>"><%= @track.album.name %></a> </h2>
+<h2>
+  <a href="/albums/<%= @track.album.id %>"><%= @track.album.name %></a> |
+
+</h2>
 <h2><%= @track.popularity %></h2>
