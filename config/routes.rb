@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'posts/create'
+
+  get 'posts/show'
+
   get 'searches' => 'searches#index'
 
   get 'searches/show'
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
 
 
   post 'favartist' => 'favartist#create'
-
+  post 'post' => 'posts#create'
 
 
 

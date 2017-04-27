@@ -15,9 +15,6 @@ class UsersController < ApplicationController
     # @track = RSpotify::Track::
     @user=User.find(params[:id])
     @favartist=Favartist.where(user_id:current_user.id)
-
-
-
   end
 
   private

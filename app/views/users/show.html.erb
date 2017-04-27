@@ -1,4 +1,14 @@
 <h1>Welcome <%= @user.username%></h1>
+
+
+<%= form_for :post, url: '/post', :html => { :multipart => true } do |f| %>
+<p><%=f.file_field :image %></p>
+<%= f.submit %>
+<% end %>
+
+
+<%= :posts.image.url(:med)%>
+
 <% content_for :left do %>
   <form class="" action="/searches" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
