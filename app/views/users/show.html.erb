@@ -2,21 +2,21 @@
 <h1>Welcome <%= @user.username%></h1>
 <% content_for :left do %>
   <form class="" action="/artists" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br><br>
     <label>Artist Name:</label>
     <input type="text" name="artist_name" value="">
     <input type="submit" name="" value="Search">
   </form>
 
   <form class="" action="/tracks" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br><br>
     <label>Song Name:</label>
     <input type="text" name="track_name" value="">
     <input type="submit" name="" value="Search">
   </form>
 
   <form class="" action="/albums" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br><br>
     <label>Album Name:</label>
     <input type="text" name="album_name" value="">
     <input type="submit" name="" value="Search">
@@ -29,7 +29,7 @@
     <tr>
       <th>Track</th>
       <th>Album</th>
-      <th>Popularity[By Genre]</th>
+      <th>Popularity [By Genre]</th>
       <th>Action</th>
     </tr>
 
@@ -107,6 +107,9 @@
 <style type="text/css">
 h2,h1,p{
   color:white;
+}
+body a{
+  color:\blue;
 }
 td,tr{color:white;}
 input{color:white;}
