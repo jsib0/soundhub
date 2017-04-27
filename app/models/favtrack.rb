@@ -1,4 +1,4 @@
 class Favtrack < ActiveRecord::Base
-  validates :track_id, uniqueness: true
+  validates_uniqueness_of :name, scope: :user_id
   belongs_to :user
 end
