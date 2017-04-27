@@ -16,6 +16,12 @@
   <img style="height:200px"src="<%= image["url"]%>" alt="<%= @artist.name%>">
 <% end %>
 
+<h4>Artsist Genres: </h4>
+<% @artist.genres.each do |genre| %>
+  <%= genre %> |
+<% end %>
+
+
 <h3>Top Five Tracks</h3>
 <ul style="list-style: none;">
 <% @artist.top_tracks(:US).take(5).each do |track| %>
@@ -29,7 +35,8 @@
      <input type="hidden" name="favtrack[album]" value="<%= track.album.name %>">
      <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
      <input type="submit" name="" value="Favorite">
-   </form>
+   </form> |
+   <audio src="<%= track.preview_url %>" controls><br>
  </li>
 <% end %>
 </ul>

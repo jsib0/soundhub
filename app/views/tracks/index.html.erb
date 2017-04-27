@@ -8,17 +8,9 @@
  <% @track.each do |track| %>
    <li>&#9839 <a href="/tracks/<%= track.id %>"><%= track.name %></a>  by
      <% track.artists.each do |t| %>
-      <%=t.name %> ||** artist_id:: but didn't add to my favtrack model, multiple artists could cause problems
-      <%= t.id %>**
+      <%=t.name %> |
      <% end %>
-     &#9835 <a href="<%= track.preview_url %>">Play</a>
-     |
-     <%= track.id %> |
-     <%= track.album.name %>|
-     <%= track.album.id %>|
-     <%= track.popularity %>|
-     <%= track.track_number %>|
-
+     &#9835 <a href="<%= track.preview_url %>">Play</a> |
      <form style="display:inline-block" action="/favtracks" method="post">
        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
        <input type="hidden" name="favtrack[album_id]" value="<%= track.album.id %>">
@@ -28,6 +20,7 @@
        <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
        <input type="submit" name="" value="Favorite">
      </form>
+     | <audio src="<%= track.preview_url %>" controls><br>
    </li>
  <% end %>
 </ul>

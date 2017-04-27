@@ -30,8 +30,8 @@
 
   <ul style="list-style: none">
     <% @album.tracks.each do |track| %>
-    <h3><li>
-       &#9833<a href="<%= track.preview_url %>"><%= track.name %></a> |
+    <li>
+       &#9833 <a href="<%= track.preview_url %>"><%= track.name %></a> | |
        <form style="display:inline-block" action="/favtracks" method="post">
          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
          <input type="hidden" name="favtrack[album_id]" value="<%= track.album.id %>">
@@ -41,6 +41,7 @@
          <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
          <input type="submit" name="" value="Favorite">
        </form>
-    </li></h3>
+        | **<audio src="<%= track.preview_url %>" controls>
+    </li>
     <% end %>
   </ul>
