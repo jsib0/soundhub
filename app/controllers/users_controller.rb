@@ -15,13 +15,6 @@ class UsersController < ApplicationController
   def show
     # @track = RSpotify::Track::
     @user=User.find(params[:id])
-<<<<<<< HEAD
-# <<<<<<< HEAD
-    # @favartist=Favartist.where(user_id:@user.id)
-    @post = Post.find_by_user_id(params[:id])
-# =======
-=======
->>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
     @favartist=Favartist.where(user_id:current_user.id)
     @favalbum=Favalbum.where(user_id:current_user.id)
     @favtrack=Favtrack.where(user_id:current_user.id)
@@ -38,10 +31,6 @@ class UsersController < ApplicationController
 
 
 
-<<<<<<< HEAD
-# >>>>>>> parent of f39e011... added post model, post controller, installed paperclips
-=======
->>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
   end
 
   private

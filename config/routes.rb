@@ -19,24 +19,12 @@ Rails.application.routes.draw do
   get '/artists/:id', to:'artists#show', as: 'artist'
 
   get 'tracks' => 'tracks#index'
-<<<<<<< HEAD
-# <<<<<<< HEAD
   get 'tracks/:id' => 'tracks#show'
 
-# =======
-# >>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
-=======
-  get 'tracks/:id' => 'tracks#show'
-
->>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
   get 'albums' => 'albums#index'
   get 'albums/:id' => 'albums#show'
 
   post 'favartist' => 'favartist#create'
-<<<<<<< HEAD
-# <<<<<<< HEAD
-=======
->>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
   delete 'favartist' => 'favartist#destroy'
 
   post 'favtracks' => 'favtracks#create'
@@ -45,13 +33,6 @@ Rails.application.routes.draw do
   post 'favalbum' => 'favalbums#create'
   delete 'favalbum' => 'favalbums#destroy'
   # get '/artists/:id', to:'artists#show', as: 'artist'
-<<<<<<< HEAD
-# =======
-#
-#
-# >>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
-=======
->>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
 
 
 
