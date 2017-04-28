@@ -1,18 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  post 'pictures/create' => "pictures#create"
 
-  get 'pictures/destroy'
+  get 'posts/create'
 
-  get 'albums/index'
-=======
->>>>>>> dc2e64d8372e5b31503d9adea47a350dd4c4b439
+  get 'posts/show'
 
- # get 'posts/create'
-#
- # get 'posts/show'
-
-  #get 'searches' => 'searches#index'
+  get 'searches' => 'searches#index'
 
   get 'searches/show'
 
@@ -26,30 +18,31 @@ Rails.application.routes.draw do
 
   get 'artists' => 'artists#index'
   get 'tracks' => 'tracks#index'
-
+<<<<<<< HEAD
+=======
   get 'tracks/:id' => 'tracks#show'
 
-
+>>>>>>> upstream/master
   get 'albums' => 'albums#index'
-  #get 'albums/:id' => 'albums#show'
+  get 'albums/:id' => 'albums#show'
 
- # get '/artists/:id', to:'artists#show', as: 'artist'
+  get '/artists/:id', to:'artists#show', as: 'artist'
 
 
   post 'favartist' => 'favartist#create'
-#<<<<<<< HEAD
- # post 'post' => 'posts#create'
+<<<<<<< HEAD
+  post 'post' => 'posts#create'
 
-#=======
-  #delete 'favartist' => 'favartist#destroy'
+=======
+  delete 'favartist' => 'favartist#destroy'
 
- # post 'favtracks' => 'favtracks#create'
-#  delete 'favtrack' => 'favtracks#destroy'
+  post 'favtracks' => 'favtracks#create'
+  delete 'favtrack' => 'favtracks#destroy'
 
   post 'favalbum' => 'favalbums#create'
   delete 'favalbum' => 'favalbums#destroy'
   # get '/artists/:id', to:'artists#show', as: 'artist'
-
+>>>>>>> upstream/master
 
 
 

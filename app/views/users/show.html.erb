@@ -10,6 +10,7 @@ input[type='file'] {
 
 <%= render "shared/menu" %>
 <h1>Welcome <%= @user.username%></h1>
+<<<<<<< HEAD
 <div class="">
   <div class="col s12 m8 offset-m2 l6 offset-l3">
        <div class="">
@@ -53,17 +54,21 @@ input[type='file'] {
     <input type="submit" name="" value="Search">
   </form>
 
-  <form class="" action="/tracks" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <label>Song Name:</label>
-    <input type="text" name="track_name" value="">
-    <input type="submit" name="" value="Search">
-  </form>
 
-  <form class="" action="/albums" method="get">
+
+<%= form_for :post, url: '/post', :html => { :multipart => true } do |f| %>
+<p><%=f.file_field :image %></p>
+<%= f.submit %>
+<% end %>
+
+
+
+
+<% content_for :left do %>
+  <form class="" action="/searches" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <label>Album Name:</label>
-    <input type="text" name="album_name" value="">
+    <label>Search:</label>
+    <input type="text" name="search" value="">
     <input type="submit" name="" value="Search">
   </form>
 <% end %>

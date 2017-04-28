@@ -1,10 +1,8 @@
-  layout "three_column"
-<<<<<<< HEAD
-  def create
+class UsersController < ApplicationController
 
+  layout "three_column"
+  def create
     @user=User.new(user_params)
-=======
->>>>>>> dc2e64d8372e5b31503d9adea47a350dd4c4b439
     if @user.save
       session[:user_id] = @user.id
       redirect_to "/users/#{@user.id}"
@@ -18,9 +16,10 @@
     # @track = RSpotify::Track::
     @user=User.find(params[:id])
     @favartist=Favartist.where(user_id:current_user.id)
+
     @favalbum=Favalbum.where(user_id:current_user.id)
     @favtrack=Favtrack.where(user_id:current_user.id)
-    @picture = Picture.find_by_user_id(params[:id])
+
     # @artist=RSpotify::Artist.search(Favartist.artist_id)
 
     # @favartist.each do |artist|
@@ -30,6 +29,10 @@
     # @favortist.each do |fava|
     #  @artists = RSpotify::Artist.search(fava.id)
     # end
+
+
+
+
   end
 
   private
