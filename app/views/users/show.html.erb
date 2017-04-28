@@ -1,6 +1,5 @@
 <%= render "shared/menu" %>
 <h1>Welcome <%= @user.username%></h1>
-<<<<<<< HEAD
 <% content_for :left do %>
   <form class="" action="/artists" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br><br>
@@ -20,34 +19,6 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><br><br>
     <label>Album Name:</label>
     <input type="text" name="album_name" value="">
-=======
-<<<<<<< HEAD
-<div class="">
-
-  <!-- profile picture -->
-  <div class="">
-    <%if @post %>
-      <%= image_tag @post.image.url(:med)%> <br>
-    <%end%>
-  </div>
-
-  <%= form_for :post, url: '/post', :html => { :multipart => true } do |f| %>
-  <p><%=f.file_field :image %></p>
-  <p><%= f.hidden_field :user_id, :value => @user.id %></p>
-  <%= f.submit %>
-  <% end %>
-
-</div>
-
-
-=======
->>>>>>> parent of f39e011... added post model, post controller, installed paperclips
-<% content_for :left do %>
-  <form class="" action="/searches" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <label>Search:</label>
-    <input type="text" name="search" value="">
->>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
     <input type="submit" name="" value="Search">
   </form>
 <% end %>

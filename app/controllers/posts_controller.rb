@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       @post = Post.find_by_id(@post.id)
-      redirect_to "/users/#{session[:user_id]}"
+      redirect_to "/users/#{current_user.id}"
     else
       flash[:errors] = @post.errors.full_messages
       redirect_to :back

@@ -12,10 +12,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170427072606) do
-=======
 ActiveRecord::Schema.define(version: 20170427175330) do
->>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
+=======
+ActiveRecord::Schema.define(version: 20170427072606) do
+>>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170427175330) do
 
   add_index "favartists", ["user_id"], name: "index_favartists_on_user_id", using: :btree
 
-<<<<<<< HEAD
   create_table "favtracks", force: :cascade do |t|
     t.string   "name"
     t.string   "track_id"
@@ -57,7 +56,8 @@ ActiveRecord::Schema.define(version: 20170427175330) do
   end
 
   add_index "favtracks", ["user_id"], name: "index_favtracks_on_user_id", using: :btree
-=======
+<<<<<<< HEAD
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "string"
@@ -72,7 +72,8 @@ ActiveRecord::Schema.define(version: 20170427175330) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
->>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
+=======
+>>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -87,9 +88,9 @@ ActiveRecord::Schema.define(version: 20170427175330) do
 
   add_foreign_key "favalbums", "users"
   add_foreign_key "favartists", "users"
-<<<<<<< HEAD
   add_foreign_key "favtracks", "users"
-=======
+<<<<<<< HEAD
   add_foreign_key "posts", "users"
->>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
+=======
+>>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
 end

@@ -42,6 +42,7 @@
 <body>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <% if flash[:errors]%>
@@ -53,9 +54,8 @@
 
   <% if session[:user_id] %>
     <form action="/sessions/<%=session[:user_id]%>" method="post">
-=======
-  <% if current_user %>
-    <form action="/sessions/<%=current_user.id%>" method="post">
+
+
 >>>>>>> parent of f39e011... added post model, post controller, installed paperclips
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="_method" value="delete">
@@ -63,6 +63,8 @@
     </form>
   <% end %>
 >>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
+=======
+>>>>>>> parent of 01eb61b... revert 329154526d218cb9702a58203cfe66b05dfb3732
 
 <%= yield %>
 
