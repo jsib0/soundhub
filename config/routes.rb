@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'posts/create'
+ # get 'posts/create'
+#
+ # get 'posts/show'
 
-  get 'posts/show'
-
-  get 'searches' => 'searches#index'
+  #get 'searches' => 'searches#index'
 
   get 'searches/show'
 
@@ -18,14 +18,31 @@ Rails.application.routes.draw do
 
   get 'artists' => 'artists#index'
   get 'tracks' => 'tracks#index'
-  get 'albums' => 'albums#index'
+#<<<<<<< HEAD
+#=======
+  get 'tracks/:id' => 'tracks#show'
 
-  get '/artists/:id', to:'artists#show', as: 'artist'
+>>>>>>> upstream/master
+  get 'albums' => 'albums#index'
+  #get 'albums/:id' => 'albums#show'
+
+ # get '/artists/:id', to:'artists#show', as: 'artist'
 
 
   post 'favartist' => 'favartist#create'
-  post 'post' => 'posts#create'
+#<<<<<<< HEAD
+ # post 'post' => 'posts#create'
 
+#=======
+  #delete 'favartist' => 'favartist#destroy'
+
+ # post 'favtracks' => 'favtracks#create'
+#  delete 'favtrack' => 'favtracks#destroy'
+
+  post 'favalbum' => 'favalbums#create'
+  delete 'favalbum' => 'favalbums#destroy'
+  # get '/artists/:id', to:'artists#show', as: 'artist'
+>>>>>>> upstream/master
 
 
 

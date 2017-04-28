@@ -1,6 +1,5 @@
 # encoding: UTF-8
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
+# This file is auto-generated from the current # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your
@@ -11,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427032318) do
+#<<<<<<< HEAD
+#ActiveRecord::Schema.define(version: 2318) do
+#=======
+ActiveRecord::Schema.define(version: 20170427072606) do
+>#>>>>>> upstream/master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favalbums", force: :cascade do |t|
+    t.string   "name"
+    t.string   "artist"
+    t.integer  "popularity"
+    t.string   "releasedate"
+    t.integer  "user_id"
+    t.string   "album_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "artist_id"
+  end
+
+  add_index "favalbums", ["user_id"], name: "index_favalbums_on_user_id", using: :btree
 
   create_table "favartists", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170427032318) do
 
   add_index "favartists", ["user_id"], name: "index_favartists_on_user_id", using: :btree
 
+#<<<<<<< HEAD
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "string"
@@ -38,6 +56,21 @@ ActiveRecord::Schema.define(version: 20170427032318) do
     t.datetime "updated_at",         null: false
   end
 
+#=======
+  create_table "favtracks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "track_id"
+    t.string   "album_id"
+    t.string   "album"
+    t.integer  "popularity"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favtracks", ["user_id"], name: "index_favtracks_on_user_id", using: :btree
+
+#>>>>>>> upstream/master
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -49,5 +82,7 @@ ActiveRecord::Schema.define(version: 20170427032318) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "favalbums", "users"
   add_foreign_key "favartists", "users"
+  add_foreign_key "favtracks", "users"
 end

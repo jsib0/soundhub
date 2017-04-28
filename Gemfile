@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'soundmanager2-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
@@ -26,10 +26,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'rspotify'
-gem 'rest_client'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+#<<<<<<< HEAD
+##gem 'rest_client'
+#gem 'bootstrap', '~> 4.0.0.alpha6'
 gem "paperclip", "~> 5.0.0"
 
+=======
+gem 'materialize-sass'
+>>>>>>> upstream/master
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -1,2 +1,60 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<%= render "shared/menu" %>
+<h1>
+Album: <%= @album.name %>|
+<% @album.artists.each do |item| %>
+<form style="display:inline-block" action="/favalbum" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="favalbum[album_id]" value="<%= @album.id %>">
+  <input type="hidden" name="favalbum[name]" value="<%= @album.name %>">
+  <input type="hidden" name="favalbum[artist]" value="<%= item.name %>">
+  <input type="hidden" name="favalbum[releasedate]" value="<%= @album.release_date %>">
+  <input type="hidden" name="favalbum[popularity]" value="<%= @album.popularity %>">
+  <input type="hidden" name="favalbum[artist_id]" value="<%= item.id %>">
+  <input type="submit" name="" value="Favorite">
+</form>
+<% end %>
+</h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end %>
+<h3><%= @album.release_date %></h3>
+
+<% @album.artists.each do |artist| %>
+  <h3>Artist: <a href="/artists/<%= artist.id %>"><%= artist.name %></a> </h3>
+<% end %>
+
+<% @album.images.take(1).each do |image| %>
+  <img style="height:500px"src="<%= image["url"]%>" alt="<%= @album.name%>">  <p class="z-depth-5"></p>
+<% end %>
+
+
+  <ul style="list-style: none">
+
+    <% @album.tracks.each do |track| %>
+    <li>
+       &#9833 <a href="<%= track.preview_url %>"><%= track.name %></a> | |
+       <form style="display:inline-block" action="/favtracks" method="post">
+         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+         <input type="hidden" name="favtrack[album_id]" value="<%= track.album.id %>">
+         <input type="hidden" name="favtrack[name]" value="<%= track.name %>">
+         <input type="hidden" name="favtrack[track_id]" value="<%= track.id %>">
+         <input type="hidden" name="favtrack[album]" value="<%= track.album.name %>">
+         <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
+         <input type="submit" name="" value="Favorite">
+       </form>
+        | **<audio src="<%= track.preview_url %>" controls>
+    </li>
+
+    <% end %>
+  </ul>
+</center>
+<style type="text/css">
+body h1,h2,h3, a{
+	font-size:40px;
+	color:white;
+}
+
+
+</style>

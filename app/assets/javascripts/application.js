@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require particles.min
+//= require soundmanager2
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.min

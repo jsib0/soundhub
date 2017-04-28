@@ -1,11 +1,77 @@
-<h1 class="page-header"><%= @artist.name %></h1>
-<% @artist.albums(country: 'US').each do |album| %>
- <h3><%= album.name %></h3>
- <ul>
-   <% album.tracks.each do |track| %>
-     <li>
-      <a style="color:green;"href="<%= track.preview_url %>">  <%= track.name %> </a>
-     </li>
-   <% end %>
- </ul>
+<%= render "shared/menu" %>
+<center>
+
+<h1 class="page-header"><%= @artist.name %>
+
+</h1>
+
+<% @artist.images.take(1).each do |image| %>
+  <img style="height:200px"src="<%= image["url"]%>" alt="<%= @artist.name%>">
+<% end %><br>
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <p style="color:red"><%= e %></p>
+    <% end %>
+  <% end %>
+
+<form style="display:inline-block" action="/favartist" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="favartist[artist_id]" value="<%= @artist.id %>">
+  <input type="hidden" name="favartist[name]" value="<%= @artist.name %>">
+  <input type="submit" name="" value="Favorite">
+</form>
+
+<h4>Top Five Tracks</h4>
+ <div id="top5">
+
+<ul style="list-style: none;">
+<% @artist.top_tracks(:US).take(5).each do |track| %>
+ <li>
+  <a href="<%= track.preview_url %>"><%= track.name %></a> |
+   <form style="display:inline-block" action="/favtracks" method="post">
+     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+     <input type="hidden" name="favtrack[album_id]" value="<%= track.album.id %>">
+     <input type="hidden" name="favtrack[name]" value="<%= track.name %>">
+     <input type="hidden" name="favtrack[track_id]" value="<%= track.id %>">
+     <input type="hidden" name="favtrack[album]" value="<%= track.album.name %>">
+     <input type="hidden" name="favtrack[popularity]" value="<%= track.popularity %>">
+     <input type="submit" name="" value="Favorite">
+   </form> |
+   <audio src="<%= track.preview_url %>" controls><br>
+ </li>
+
 <% end %>
+</ul>
+</div>
+<div class="moremusic">
+<h2>All Albums</h2>
+
+<% @artist.albums(country: 'US').each do |album| %>
+<% album.artists.each do |item|%>
+ <h5>
+   <a href="/albums/<%= album.id %>"><%= album.name %></a> |
+   <form style="display:inline-block" action="/favalbum" method="post">
+     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+     <input type="hidden" name="favalbum[album_id]" value="<%= album.id %>">
+     <input type="hidden" name="favalbum[name]" value="<%= album.name %>">
+     <input type="hidden" name="favalbum[artist]" value="<%= item.name %>">
+     <input type="hidden" name="favalbum[releasedate]" value="<%= album.release_date %>">
+     <input type="hidden" name="favalbum[popularity]" value="<%= album.popularity %>">
+     <input type="hidden" name="favalbum[artist_id]" value="<%= item.id %>">
+     <input type="submit" name="" value="Favorite">
+   </form>
+  <% end %>
+ </h5>
+<% end %>
+
+
+<style type="text/css">
+#top5{
+  border:3px solid black;
+  width:300px;
+}
+form{
+  align-content:right;
+}
+</style>

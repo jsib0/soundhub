@@ -1,3 +1,4 @@
+<%= render "shared/menu" %>
 <h1>Welcome <%= @user.username%></h1>
 
 
@@ -23,47 +24,86 @@
   <table>
     <tr>
       <th>Track</th>
-      <th>Artists</th>
       <th>Album</th>
-      <th>Released Year</th>
+      <th>Popularity[By Genre]</th>
+      <th>Action</th>
     </tr>
 
+    <% @favtrack.each do |ft| %>
     <tr>
-      <td>Testing</td>
-      <td>Testing</td>
-      <td>Testing</td>
-      <td>Testing</td>
-    </tr>
-  </table>
-
-  <h2>Favorite Artists</h2>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Genres</th>
-      <th>Top Track</th>
-    </tr>
-
-    <% @favartist.each do |fa| %>
-    <tr>
-      <td><a href="/artists/<%= fa.artist_id %>"><%= fa.name %></a></td>
-      <td><%= fa.artist_id %></td>
-      <td>Testing</td>
+      <td> <a href="/tracks/<%= ft.track_id %>"> <%= ft.name %></a></td>
+      <td><%= ft.album%></td>
+      <td><%= ft.popularity%></td>
+      <td>
+        <form class="" action="/favtrack" method="post" data-confirm="are you sure?">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="favtrack[track_id]" value="<%= ft.track_id %>">
+          <input type="submit" name="" value="Remove">
+        </form>
+      </td>
     </tr>
     <% end %>
   </table>
+
+
 
   <h2>Favorite Albums</h2>
   <table>
     <tr>
       <th>Album</th>
       <th>Artist</th>
-      <th>Genres</th>
-      <th>Relased Year</th>
+      <th>Popularity [By Genre]</th>
+      <th>Release Date</th>
+      <th>Action</th>
     </tr>
+
+    <% @favalbum.each do |favalbum| %>
+    <tr>
+      <td><a href="/albums/<%= favalbum.album_id%>"><%= favalbum.name %></a> </td>
+      <td><a href="/artists/<%= favalbum.artist_id %>"><%= favalbum.artist %></a> </td>
+      <td><%= favalbum.popularity %></td>
+      <td><%= favalbum.releasedate %></td>
+      <td>
+        <form style="display:inline-block" action="/favalbum" method="post" data-confirm="are your sure?">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="favalbum[album_id]" value="<%= favalbum.album_id %>">
+          <input type="submit" name="" value="Remove">
+        </form>
+      </td>
+    </tr>
+    <% end %>
   </table>
 <% end %>
 
 <% content_for :right do%>
-<h4>here we will have a box rendering the most popular songs</h4>
+<h2>Favorite Artists</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+
+  <% @favartist.each do |fa| %>
+  <tr>
+    <td><a href="/artists/<%= fa.artist_id %>"><%= fa.name %></a></td>
+    <td>
+      <form style="display:inline-block" action="/favartist" method="post" data-confirm="are your sure?">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="favartist[artist_id]" value="<%= fa.artist_id %>">
+        <input type="submit" name="" value="Remove">
+      </form>
+    </td>
+  </tr>
+  <% end %>
+</table>
 <% end %>
+<style type="text/css">
+h2,h1,p{
+  color:white;
+}
+td,tr{color:white;}
+input{color:white;}
+</style>
