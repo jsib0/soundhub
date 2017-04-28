@@ -26,7 +26,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'rspotify'
+
 gem 'materialize-sass'
+
+
+
+# gem 'bootstrap', '~> 4.0.0.alpha6'
+gem "paperclip", "~> 5.0.0"
+
+
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -46,4 +56,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
 end

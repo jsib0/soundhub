@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  get 'albums/index'
 
-  get 'albums/show'
+  get 'searches' => 'searches#index'
 
-  get 'tracks/index'
-
-  get 'tracks/show'
+  get 'searches/show'
 
   root 'session#new'
   post'sessions' => 'session#create'
@@ -13,18 +10,23 @@ Rails.application.routes.draw do
 
   get 'register' => 'users#register'
   post 'users' => 'users#create'
-  get 'users/:id' => 'users#show'
+  get '/users/:id' => 'users#show'
 
   get 'artists' => 'artists#index'
-  get '/artists/:id', to:'artists#show', as: 'artist'
-
   get 'tracks' => 'tracks#index'
+<<<<<<< HEAD
   get 'tracks/:id' => 'tracks#show'
 
+=======
+>>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
   get 'albums' => 'albums#index'
   get 'albums/:id' => 'albums#show'
 
+  get '/artists/:id', to:'artists#show', as: 'artist'
+
+
   post 'favartist' => 'favartist#create'
+<<<<<<< HEAD
   delete 'favartist' => 'favartist#destroy'
 
   post 'favtracks' => 'favtracks#create'
@@ -33,6 +35,10 @@ Rails.application.routes.draw do
   post 'favalbum' => 'favalbums#create'
   delete 'favalbum' => 'favalbums#destroy'
   # get '/artists/:id', to:'artists#show', as: 'artist'
+=======
+
+
+>>>>>>> cc232c9b2c1655809075655dd31166ff918586e7
 
 
 
