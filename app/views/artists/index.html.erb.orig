@@ -1,0 +1,33 @@
+<<<<<<< HEAD
+=======
+<%= render "shared/menu" %>
+<h1 class="page-header">Artists Matching <%= params[:artist_name] %></h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color:red"><%= e %></p>
+  <% end %>
+<% end %>
+<ul>
+ <% @artists.each do |artist| %>
+   <li><%= artist.name %> | <a href="/artists/<%= artist.id%>">SHOW</a>
+   |
+   <form style="display:inline-block" action="/favartist" method="post">
+     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+     <input type="hidden" name="favartist[artist_id]" value="<%= artist.id %>">
+     <input type="hidden" name="favartist[name]" value="<%= artist.name %>">
+     <input type="hidden" name="favartist[genres]" value="<%= artist.genres %>">
+     <% artist.top_tracks(:US).take(3).each do |track| %>
+     <input type="hidden" name="favartist[toptracks]" value="<%= artist.top_tracks(:US) %>">
+     <% end %>
+     <input type="submit" name="" value="Favorite">
+   </form>
+   </li>
+
+ <% end %>
+</ul>
+<style type="text/css">
+  form{
+    color:white;
+  }
+</style>
+>>>>>>> upstream/master
