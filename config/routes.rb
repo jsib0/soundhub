@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'pictures/create' => "pictures#create"
+
+  get 'pictures/destroy'
+
   get 'albums/index'
 
   get 'albums/show'

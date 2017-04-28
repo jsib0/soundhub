@@ -1,5 +1,50 @@
+<style media="screen">
+input[type='file'] {
+
+}
+
+</style>
+
+
+
+
 <%= render "shared/menu" %>
 <h1>Welcome <%= @user.username%></h1>
+<div class="">
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+       <div class="">
+         <div class="row valign-wrap">
+           <div class="col s2">
+            <% if @picture%>
+            <img src="<%= @picture.image.url(:medium)%>" alt="" class="circle responsive-img">
+            <%end%>
+         </div>
+         <div class="col s10">
+          <span class="black-text">
+
+          </span>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+    <%= form_for :picture, url: pictures_create_path , :html => { :multipart => true } do |f| %>
+
+
+       <a class="btn-floating btn-mini waves-effect waves-light red"><i class="material-icons"><p class="flow-text"><%=f.file_field :image%></p></i></a>
+
+
+      <%= hidden_field :picture, :user_id, :value => @user.id%>
+      <input type="submit" name="" value="" class="">
+
+
+    <% end %>
+
+
 <% content_for :left do %>
   <form class="" action="/artists" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
