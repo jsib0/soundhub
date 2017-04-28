@@ -1,25 +1,14 @@
 <h1>Welcome <%= @user.username%></h1>
-<<<<<<< HEAD
-<div class="">
-
-  <!-- profile picture -->
-  <div class="">
-    <%if @post %>
-      <%= image_tag @post.image.url(:med)%> <br>
-    <%end%>
-  </div>
-
-  <%= form_for :post, url: '/post', :html => { :multipart => true } do |f| %>
-  <p><%=f.file_field :image %></p>
-  <p><%= f.hidden_field :user_id, :value => @user.id %></p>
-  <%= f.submit %>
-  <% end %>
-
-</div>
 
 
-=======
->>>>>>> parent of f39e011... added post model, post controller, installed paperclips
+<%= form_for :post, url: '/post', :html => { :multipart => true } do |f| %>
+<p><%=f.file_field :image %></p>
+<%= f.submit %>
+<% end %>
+
+
+
+
 <% content_for :left do %>
   <form class="" action="/searches" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
