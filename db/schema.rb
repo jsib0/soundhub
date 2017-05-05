@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 20170428053839) do
-=======
-ActiveRecord::Schema.define(version: 20170427175330) do
->>>>>>> dc2e64d8372e5b31503d9adea47a350dd4c4b439
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170427175330) do
 
   add_index "favtracks", ["user_id"], name: "index_favtracks_on_user_id", using: :btree
 
-<<<<<<< HEAD
+
   create_table "pictures", force: :cascade do |t|
     t.string   "title"
     t.string   "image_file_name"
@@ -71,8 +70,7 @@ ActiveRecord::Schema.define(version: 20170427175330) do
 
   add_index "pictures", ["user_id"], name: "index_pictures_on_user_id", using: :btree
 
-=======
->>>>>>> dc2e64d8372e5b31503d9adea47a350dd4c4b439
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "string"
@@ -102,9 +100,8 @@ ActiveRecord::Schema.define(version: 20170427175330) do
   add_foreign_key "favalbums", "users"
   add_foreign_key "favartists", "users"
   add_foreign_key "favtracks", "users"
-<<<<<<< HEAD
+
   add_foreign_key "pictures", "users"
-=======
->>>>>>> dc2e64d8372e5b31503d9adea47a350dd4c4b439
+
   add_foreign_key "posts", "users"
 end

@@ -1,16 +1,30 @@
 <style media="screen">
-input[type='file'] {
-
+label {
+ cursor: pointer;
+ /* Style as you please, it will become the visible UI component. */
 }
 
+#upload-photo {
+ opacity: 1;
+ position: absolute;
+ z-index: 1;
+}
 </style>
 
+<head>
+   <title>The Materialize Buttons Example</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+</head>
 
 
 
 <%= render "shared/menu" %>
 <h1>Welcome <%= @user.username%></h1>
-<<<<<<< HEAD
+
 <div class="">
   <div class="col s12 m8 offset-m2 l6 offset-l3">
        <div class="">
@@ -35,16 +49,15 @@ input[type='file'] {
 
     <%= form_for :picture, url: pictures_create_path , :html => { :multipart => true } do |f| %>
 
-
-       <a class="btn-floating btn-mini waves-effect waves-light red"><i class="material-icons"><p class="flow-text"><%=f.file_field :image%></p></i></a>
-
-
       <%= hidden_field :picture, :user_id, :value => @user.id%>
-      <input type="submit" name="" value="" class="">
+      <label for="upload-photo"></label>
+      <%= f.file_field :image%>
 
-
+       <%= f.submit :submit, id: "submit", class: "btn-floating waves-effect waves-light red material-icons", value: "add"%>
     <% end %>
+    <div class="">
 
+   </div>
 
 <% content_for :left do %>
   <form class="" action="/artists" method="get">
@@ -54,12 +67,9 @@ input[type='file'] {
     <input type="submit" name="" value="Search">
   </form>
 
+<%end%>
 
 
-<%= form_for :post, url: '/post', :html => { :multipart => true } do |f| %>
-<p><%=f.file_field :image %></p>
-<%= f.submit %>
-<% end %>
 
 
 

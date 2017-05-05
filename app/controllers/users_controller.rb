@@ -1,10 +1,9 @@
-  layout "three_column"
-<<<<<<< HEAD
-  def create
+class UsersController < ApplicationController
 
+  layout "three_column"
+
+  def create
     @user=User.new(user_params)
-=======
->>>>>>> dc2e64d8372e5b31503d9adea47a350dd4c4b439
     if @user.save
       session[:user_id] = @user.id
       redirect_to "/users/#{@user.id}"

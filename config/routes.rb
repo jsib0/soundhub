@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   post 'pictures/create' => "pictures#create"
 
   get 'pictures/destroy'
 
   get 'albums/index'
-=======
->>>>>>> dc2e64d8372e5b31503d9adea47a350dd4c4b439
+
 
  # get 'posts/create'
 #
